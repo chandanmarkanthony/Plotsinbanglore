@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { floorPlans } from './DataJson';
 import Form from './Form';
 
-function FloorPlan() {
+function FloorPlan({floorPlans}) {
     const [showForm, setShowForm] = useState(false);
     const [blurImages, setBlurImages] = useState(false);
     const formRef = useRef(null);
@@ -47,7 +47,7 @@ function FloorPlan() {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
-
+const floorPlansdata= floorPlans?.floorPlans ? JSON.parse(floorPlans.floorPlans) : []
     return (
         <div>
             <section className="py-20" id='price'>
@@ -55,7 +55,7 @@ function FloorPlan() {
                     <span className="border-b-2 border-green-500">Floor Plan</span>
                 </h2>
                 <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-5 p-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-5 ">
-                    {floorPlans.map((plan, index) => (
+                    {floorPlansdata.map((plan, index) => (
                         <article key={index} className="flex flex-col justify-between h-auto bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-200  hover:translate-y-2 border-2 border-grey-700">
                             <div className='m-2 rounded-t-lg border-2 border-grey-700'>
                                 <img 
@@ -71,8 +71,8 @@ function FloorPlan() {
                                         <p className="mb-3 text-md font-medium text-white flex justify-end bg-green-600 rounded-lg p-2 z-10 mx-2"   onClick={toggleForm}>{plan.type}</p>
                                     </div>
                                     <div className='mt-[30px]'>
-                                        <p className="mb-3 text-md font-medium text-gray-800 flex justify-center border-2 border-grey-700 rounded-lg mx-6">Area: {plan.area}</p>
-                                        <p className="mb-4 text-xl font-medium text-gray-800 flex justify-center">{plan.price}</p>
+                                        <p className="mb-3 text-md font-medium text-gray-800 flex justify-center border-2 border-grey-700 rounded-lg mx-6">Area: {plan.area} Sq.ft</p>
+                                        <p className="mb-4 text-xl font-medium text-gray-800 flex justify-center">{plan.starting_Price}</p>
                                     </div>
                                 </div>
                                 <div className="m-4">

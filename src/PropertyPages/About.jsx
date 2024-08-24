@@ -3,7 +3,7 @@ import { aboutData } from "./DataJson";
 import { FaRegFilePdf } from "react-icons/fa";
 import Form from "./Form";
 import { initializeGTM } from "../ReactGA4";
-function About() {
+function About({about}) {
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
   useEffect(() => {
@@ -25,49 +25,27 @@ function About() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
+  const aboutdata = about?.about ? JSON.parse(about.about) : [] ;
+  console.log("aboutdata",aboutdata)
   return (
     <div className="py-10">
       <div className="text-center ">
         <h2 className="text-lg font-bold mb-5 border-b-2 border-green-500 inline-block text-center ">
-          {aboutData.title}
+       About
         </h2>
       </div>
 
       <div className="mx-auto max-w-screen-xl p-5 ">
-        {aboutData.content.map((section, index) => (
+        {aboutdata.map((section, index) => (
           <div key={index}>
-            <h4 className="text-2xl font-semibold mt-6 text-green-600">
-              {section.heading}
+            <h4 className="text-2xl font-semibold mt-6 mb-2 text-green-600">
+              {section.title}
             </h4>
             <p className="text-sm md:text-lg lg:text-lg xl:text-lg text-gray-700 leading-relaxed text-justify">
-              {section.paragraph}
+              {section.description}
             </p>
-            <p className="text-sm md:text-lg lg:text-lg xl:text-lg text-gray-700 leading-relaxed text-justify">
-              {section.paragraph1}
-            </p>
-            <p className="text-sm md:text-lg lg:text-lg xl:text-lg text-gray-700 leading-relaxed text-justify">
-              {section.paragraph2}
-            </p>
-            <p className="text-sm md:text-lg lg:text-lg xl:text-lg text-gray-700 leading-relaxed text-justify">
-              {section.paragraph3}
-            </p>
-            <p className="text-sm md:text-lg lg:text-lg xl:text-lg text-gray-700 leading-relaxed text-justify">
-              {section.paragraph4}
-            </p>
-            <p className="text-sm md:text-lg lg:text-lg xl:text-lg text-gray-700 leading-relaxed text-justify">
-              {section.paragraph5}
-            </p>
-            {section.subpoints && (
-              <ul className="text-sm md:text-lg lg:text-lg xl:text-lg text-gray-700 leading-relaxed text-justify">
-                {section.subpoints.map((subpoint, subIndex) => (
-                  <li key={subIndex} className="mt-3">
-                    <strong>{subpoint.split(":")[0]}</strong>:{" "}
-                    {subpoint.split(":")[1]}
-                  </li>
-                ))}
-              </ul>
-            )}
+           
+           
           </div>
         ))}
       </div>

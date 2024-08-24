@@ -4,7 +4,7 @@ import { footerData } from "./DataJson";
 import { bannerData } from "./DataJson";
 import Form from "./Form";
 import Qr from "../Assets/Images/pune agent rera qr code.png";
-function Footer() {
+function Footer({property}) {
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
   useEffect(() => {
@@ -44,9 +44,9 @@ function Footer() {
       <div className="text-center p-4 ">
         <div className="mx-auto max-w-screen-xl  flex flex-col items-center">
           <h4 className="text-sm md:text-lg font-semibold mb-6">
-            {footerData.projectrera}
+            {property?.project_Rera}
           </h4>
-          <h4 className="text-sm md:text-lg font-semibold mb-6">{footerData.agentrera}</h4>
+          <h4 className="text-sm md:text-lg font-semibold mb-6">{property.agent_Rera}</h4>
           <img src={Qr} alt="Scan" className="mb-4 h-20 w-20" />
 
           <p

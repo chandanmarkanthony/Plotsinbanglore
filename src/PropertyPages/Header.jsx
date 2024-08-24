@@ -4,7 +4,7 @@ import { headerData } from './DataJson';
 import { Link } from 'react-router-dom';
 import Form from './Form';
 
-const Header = () => {
+const Header = ({logo}) => {
     const [showForm, setShowForm] = useState(false);
     const formRef = useRef(null);
     useEffect(() => {
@@ -42,9 +42,9 @@ const Header = () => {
     return (
         <div>
             <header className="text-slate-700 relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center shadow-md">
-                <Link to={headerData.pageUrl} className="flex items-center ml-4 whitespace-nowrap text-2xl font-black">
+                <Link to="/" className="flex items-center ml-4 whitespace-nowrap text-2xl font-black">
                     <span className="w-[88%]">
-                        <img src={headerData.propertylogo} alt={headerData.logoalt} className='h-[50px]' />
+                        <img src={logo} alt={headerData.logoalt} className='h-[50px]' />
                     </span>
                 </Link>
                 <input type="checkbox" className="peer hidden" id="navbar-open" />

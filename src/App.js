@@ -18,7 +18,8 @@ function App() {
             <Footer />
           </>
         } />
-        <Route path="/property-details" element={<PropertyDetails />} />
+        
+        <Route path="/property-details/:id" element={<PropertyDetails />} />
       </Routes>
      
     </Router>

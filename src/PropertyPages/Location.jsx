@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay ,faPause} from '@fortawesome/free-solid-svg-icons';
 import Form from './Form';
 
-function Location() {
+function Location({property}) {
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
   useEffect(() => {
@@ -32,6 +32,8 @@ function Location() {
         setShowForm(false);
     }
 };
+const galleryData = property?.locationData ? JSON.parse(property.locationData) : [];
+const reasonsToConsider =property?.reasonsToConsider ? JSON.parse(property.reasonsToConsider) : [];
   return (
     <div className="text-center py-10" id='location'>
       <h2 className="text-2xl font-bold mb-8 border-b-2 border-green-500 inline-block">Virtual / Location</h2>
@@ -43,7 +45,7 @@ function Location() {
       <div className="relative w-full h-64 md:h-96 rounded-lg shadow-md">
         <img
         onClick={formopen}
-          src={locationData.virtualTour.imageSrc}
+          src={galleryData.virtualmap}
           alt="Virtual"
           className="object-cover object-center w-full h-full rounded-lg"
         />
@@ -57,13 +59,13 @@ function Location() {
     </div>
         <div className="flex flex-col justify-center items-center rounded-lg">
           <h2 className="text-2xl font-bold mb-8 border-b-2 border-green-500 inline-block">{locationData.locationMap.heading}</h2>
-          <img src={locationData.locationMap.imageSrc} alt="Map" className="object-cover object-center w-full h-full rounded-lg shadow-md" onClick={formopen} />
+          <img src={galleryData.map} alt="Map" className="object-cover object-center w-full h-full rounded-lg shadow-md" onClick={formopen} />
         
         </div>
       </div>
       <div className="mt-8 mx-auto max-w-screen-xl p-5 ">
         <ol className="flex flex-wrap text-left justify-center border-2 border-grey-700 rounded-sm shadow-lg p-4">
-          {locationData.nearbyLocations.map((location, index) => (
+          {reasonsToConsider.map((location, index) => (
             <li key={index} className="w-full md:w-1/2 px-4 py-3 sm:px-0 flex items-center text-start text-sm md:text-lg lg:text-lg xl:text-lg">
               <FaMapMarkerAlt className="mr-2 text-green-500" /> {location}
             </li>
