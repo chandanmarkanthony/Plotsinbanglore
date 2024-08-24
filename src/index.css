@@ -1,13 +1,96 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+    display: none !important;
+  }
+
+
+/* Banner */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .animate-fadeOut {
+    animation: fadeOut 1s ease-in-out;
+  }
+  
+/* Property Pages */
+
+
+@keyframes slideInDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.animate-slide-in-down {
+  animation: slideInDown 3s ease-in-out infinite;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.effetGradient {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-shadow: 0px 3px 6px #216144; 
+  background-color: #28a745; 
+  background-image: linear-gradient(-45deg, #216144, #28a745, #216144, #28a745);
+  background-size: 400% 400%;
+  animation: Gradient 3s ease infinite;
+  border: none;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5);
+  }
+}
+
+.animate-bounceIn {
+  animation-name: bounceIn;
+  animation-duration: 3s;
+}
+.hover-rotate:hover .icon-wrapper {
+  transition: transform 0.9s ease-in-out;
+  transform: rotate(360deg);
 }
