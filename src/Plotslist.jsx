@@ -21,7 +21,7 @@ function Plotslist() {
   }, []);
 
   return (
-    <section className="container-fluid mx-auto px-24 py-8">
+    <section className="container-fluid mx-auto px-4 md:px-24 py-8">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl font-semibold">Latest Plots</h2>
         <Link to="/all-properties" className="text-gray-600 hover:text-black flex items-center">
@@ -35,15 +35,23 @@ function Plotslist() {
               key={index}
               className="relative overflow-hidden shadow-lg group transition-all duration-500"
             >
-              <img
+               <Link to={`/property-details/${property.id}`}>
+               
+               <img
                 src={property.banner}
                 alt={property.project_Name}
-                className="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                className="w-full md:h-96 h-72 object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
+              </Link>
+             
               <div
                 className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end items-start text-left p-4 transition-all duration-500 group-hover:translate-y-[-60px]"
               >
-                <h3 className="text-white text-lg md:text-3xl font-semibold mb-2">{property.project_Name}</h3>
+                <Link to={`/property-details/${property.id}`}>
+                  <h3 className="text-white text-lg md:text-3xl font-semibold mb-2">
+                    {property.project_Name}
+                  </h3>
+                </Link>
                 <p className="text-white mb-3 text-sm md:text-lg border-2 border-green-500 p-2 px-3  rounded md:rounded-full">STARTING @ {property.starting_Price}</p>
                 <Link
                   to={`/property-details/${property.id}`}

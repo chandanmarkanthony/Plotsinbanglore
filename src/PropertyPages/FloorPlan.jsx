@@ -63,6 +63,7 @@ const floorPlansdata= floorPlans?.floorPlans ? JSON.parse(floorPlans.floorPlans)
                                     alt="featured image" 
                                     onClick={toggleForm}
                                     src={plan.image} 
+                                  
                                 />
                             </div>
                             <div className="p-2 ">
@@ -85,7 +86,7 @@ const floorPlansdata= floorPlans?.floorPlans ? JSON.parse(floorPlans.floorPlans)
                     ))}
                 </div>
             </section>
-            {showForm && <div ref={formRef}><Form onClose={toggleForm} /></div>}
+            {showForm && <div ref={formRef}><Form onClose={toggleForm}   propertyform={floorPlans} /></div>}
         </div>
     );
 }

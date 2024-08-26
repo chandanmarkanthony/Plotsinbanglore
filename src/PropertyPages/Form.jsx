@@ -2,13 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import { IoClose } from "react-icons/io5";
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { bannerData,formField } from "./DataJson"
+import { bannerData, formField } from "./DataJson"
 import TagManager from 'react-gtm-module';
 import { useLocation } from 'react-router-dom';
-function Form() {
-  const location=useLocation()
+function Form({propertyform}) {
+  const location = useLocation()
   const [isOpen, setIsOpen] = useState(true);
   const formRef = useRef(null);
+  console.log("propertyform",propertyform)
   const [utmData, setUtmData] = useState({
     utm_source: '',
     utm_medium: '',
@@ -24,8 +25,8 @@ function Form() {
     email: "",
     phone: "",
     name: "",
-    project: formField?.EmailProjectName,
-    allMails:formField?.allMails
+    project: propertyform?.project_Name || "",
+    allMails: JSON.parse(propertyform?.allMails) || []
   });
 
   const [userLocation, setUserLocation] = useState({
@@ -60,17 +61,17 @@ function Form() {
           ip_address: ip,
           user_city: response.data.city,
           user_country: response.data.country,
-          
+
           // longitudee:response.data.,
         }));
       } catch (error) {
         console.error('Error getting IP address:', error);
       }
     }
-  
+
     fetchData();
   }, []);
-  
+
 
   useEffect(() => {
     function getParameterByName(name, url) {
@@ -167,57 +168,57 @@ function Form() {
       console.log("utmData", utmData);
 
       const response = await axios.post('https://leadapi.homebble.in/formdataRoute/getFormdata', utmData);
-     
-      
+
+
       if (response.status === 200) {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          event: formField?.gtmProjectName, 
+          event: formField?.gtmProjectName,
         });
-       
-   
-        
-      
-      
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: response.data.message || 'Data sent successfully',
-            showConfirmButton: true, 
-            allowOutsideClick: false, 
-            allowEscapeKey: false, 
-            allowEnterKey: false,
-            onClose: () => {
-              setIsOpen(false); 
-            },
-          });
-          
-        
-          const newUrl = `${window.location.pathname}?Formsuccess=true`;
-window.history.pushState({}, '', newUrl);
-window.location.href = newUrl;
-TagManager.dataLayer({
-  dataLayer: {
-    event: 'VirtualPageView',
-    send_to: 'AW-784160287',
-    pagePath: newUrl,
-    pageTitle: 'successs'
-  },
-});
+
+
+
+
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: response.data.message || 'Data sent successfully',
+          showConfirmButton: true,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
+          onClose: () => {
+            setIsOpen(false);
+          },
+        });
+
+
+        const newUrl = `${window.location.pathname}?Formsuccess=true`;
+        window.history.pushState({}, '', newUrl);
+        window.location.href = newUrl;
+        TagManager.dataLayer({
+          dataLayer: {
+            event: 'VirtualPageView',
+            send_to: 'AW-784160287',
+            pagePath: newUrl,
+            pageTitle: 'successs'
+          },
+        });
 
       }
     } catch (error) {
       console.error('Error occurred:', error);
-     
+
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: error.response ? (error.response.data.message||error.response.data.error || 'An error occurred while processing your request') : 'An error occurred while processing your request',
+        text: error.response ? (error.response.data.message || error.response.data.error || 'An error occurred while processing your request') : 'An error occurred while processing your request',
         timer: 2000,
         timerProgressBar: true,
       });
-        const newUrl = `${window.location.pathname}?FormError=true`;
-          window.history.replaceState({}, '', newUrl);
+      const newUrl = `${window.location.pathname}?FormError=true`;
+      window.history.replaceState({}, '', newUrl);
     }
   };
 
@@ -249,7 +250,7 @@ TagManager.dataLayer({
       [name]: value
     }));
   };
-  
+
   return (
     <>
       {isOpen && (
@@ -267,8 +268,8 @@ TagManager.dataLayer({
                 </div>
                 <div className="space-y-2">
                   <label className="mb-5 text-sm font-medium text-gray-700 tracking-wide" htmlFor="phone">Number</label>
-                  <input id="phone" name="phone" className="w-full content-center text-base px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-400"   type="number"
-        inputMode="numeric" placeholder="Enter your Number" value={utmData.phone} onChange={handleInputChange} />
+                  <input id="phone" name="phone" className="w-full content-center text-base px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="number"
+                    inputMode="numeric" placeholder="Enter your Number" value={utmData.phone} onChange={handleInputChange} />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700 tracking-wide" htmlFor="email">Email</label>

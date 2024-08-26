@@ -3,7 +3,7 @@ import { TbBeachOff } from "react-icons/tb";
 import { amenitiesData } from './DataJson'
 import Form from './Form';
 
-function Amenities() {
+function Amenities({amenities}) {
 
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
@@ -58,7 +58,7 @@ function Amenities() {
           More Amenities
         </button>
       </div>
-      {showForm && <div ref={formRef}><Form onClose={toggleForm} /></div>}
+      {showForm && <div ref={formRef}><Form onClose={toggleForm}   propertyform={amenities} /></div>}
     </div>
 
   );

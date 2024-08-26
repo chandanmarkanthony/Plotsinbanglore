@@ -161,7 +161,7 @@ const Banner = ({ property }) => {
       </div>
       {showForm && (
         <div ref={formRef}>
-          <Form onClose={() => toggleForm("Close Form")} />
+          <Form onClose={() => toggleForm("Close Form")}  propertyform={property} />
         </div>
       )}
       <div className="md:hidden ">

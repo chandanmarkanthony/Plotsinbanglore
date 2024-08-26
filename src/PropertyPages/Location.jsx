@@ -71,7 +71,7 @@ const reasonsToConsider =property?.reasonsToConsider ? JSON.parse(property.reaso
             </li>
           ))}
         </ol>
-        {showForm && <div ref={formRef}><Form onClose={formopen} /></div>}
+        {showForm && <div ref={formRef}><Form onClose={formopen}   propertyform={property} /></div>}
       </div>
 
     </div>

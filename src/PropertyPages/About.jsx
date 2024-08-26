@@ -61,7 +61,7 @@ function About({about}) {
       {showForm && (
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50">
           <div ref={formRef}>
-            <Form onClose={toggleForm} />
+            <Form onClose={toggleForm}   propertyform={about} />
           </div>
         </div>
       )}

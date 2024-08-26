@@ -104,7 +104,7 @@ function OverView({ property }) {
             Download Brochure
           </button>
         </div>
-        {showForm && <div ref={formRef}><Form onClose={toggleForm} /></div>}
+        {showForm && <div ref={formRef}><Form onClose={toggleForm} propertyform={property} /></div>}
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ const formField = {
     "santhoshrajan@markanthony.co.in",
     "rushikeshshinde@markanthony.co.in",
   ],
-  // allMails:["manojgade@markanthony.co.in","prabhakar.markanthony@gmail.com","vikrammarkanthony@gmail.com"]
+
 };
 const bannerData = {
   bgimage: BannerImage,
