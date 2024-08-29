@@ -20,7 +20,7 @@ function App() {
         } />
         
        
-        <Route path="/property-details/:id" element={<PropertyDetails />} />
+        <Route path="/property-details/:project_name/:id" element={<PropertyDetails />} />
       </Routes>
      
     </Router>

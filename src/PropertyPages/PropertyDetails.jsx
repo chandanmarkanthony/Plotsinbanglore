@@ -15,7 +15,7 @@ import axios from 'axios';
 import Form from './Form';
 
 const PropertyDetails = () => {
-    const { id } = useParams();
+    const { id,project_name } = useParams();
     const [property, setProperties] = useState({});
     const [showForm, setShowForm] = useState(false);
 
@@ -53,7 +53,7 @@ const PropertyDetails = () => {
         fetchData();
     }, [id]);
     const seo_description = property?.seo_description ? JSON.parse(property?.seo_description) : []
-    console.log("propertydaaaaa",property)
+ 
     return (
         <div>
             <Helmet>

@@ -35,7 +35,7 @@ function Plotslist() {
               key={index}
               className="relative overflow-hidden shadow-lg group transition-all duration-500"
             >
-               <Link to={`/property-details/${property.id}`}>
+               <Link to={`/property-details/${(property.project_Name).replace(/ /g, "-")}/${property.id}`}>
                
                <img
                 src={property.banner}
@@ -47,14 +47,13 @@ function Plotslist() {
               <div
                 className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end items-start text-left p-4 transition-all duration-500 group-hover:translate-y-[-60px]"
               >
-                <Link to={`/property-details/${property.id}`}>
+                <Link to={`/property-details/${(property.project_Name).replace(/ /g, "-")}/${property.id}`}>
                   <h3 className="text-white text-lg md:text-3xl font-semibold mb-2">
                     {property.project_Name}
                   </h3>
                 </Link>
                 <p className="text-white mb-3 text-sm md:text-lg border-2 border-green-500 p-2 px-3  rounded md:rounded-full">STARTING @ {property.starting_Price}</p>
-                <Link
-                  to={`/property-details/${property.id}`}
+                <Link to={`/property-details/${(property.project_Name).replace(/ /g, "-")}/${property.id}`}
                   className="text-white hover:text-green-500 mt-2 inline-block font-semibold"
                 >
                   Click here to view &rarr;
