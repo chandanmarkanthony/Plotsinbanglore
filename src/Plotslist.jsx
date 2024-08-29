@@ -52,7 +52,7 @@ function Plotslist() {
                     {property.project_Name}
                   </h3>
                 </Link>
-                <p className="text-white mb-3 text-sm md:text-lg border-2 border-green-500 p-2 px-3  rounded md:rounded-full">STARTING @ {property.starting_Price}</p>
+                <Link to={`/property-details/${(property.project_Name).replace(/ /g, "-")}/${property.id}`}><p className="text-white mb-3 text-sm md:text-lg border-2 border-green-500 p-2 px-3  rounded md:rounded-full">STARTING @ {property.starting_Price}</p>  </Link>
                 <Link to={`/property-details/${(property.project_Name).replace(/ /g, "-")}/${property.id}`}
                   className="text-white hover:text-green-500 mt-2 inline-block font-semibold"
                 >
@@ -63,18 +63,26 @@ function Plotslist() {
                 className="absolute bottom-0 left-0 w-full bg-green-500 text-white text-sm md:text-lg p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"
               >
                 <div className="grid grid-cols-3 gap-2">
+              
                   <div className="text-center">
+                  <Link to={`/property-details/${(property.project_Name).replace(/ /g, "-")}/${property.id}`}>
                     <span className="block font-semibold">Possession</span>
                     <span className='text-base'>{property.Possession}</span>
+                    </Link>
                   </div>
                   <div className="text-center">
+                  <Link to={`/property-details/${(property.project_Name).replace(/ /g, "-")}/${property.id}`}>
                     <span className="block font-semibold">Type</span>
                     <span className='text-base'>{"Plots"}</span>
+                    </Link>
                   </div>
                   <div className="text-center">
+                  <Link to={`/property-details/${(property.project_Name).replace(/ /g, "-")}/${property.id}`}>
                     <span className="block font-semibold">Land</span>
                     <span className='text-base'>{property.land_parcel}</span>
+                    </Link>
                   </div>
+                
                 </div>
               </div>
             </div>
