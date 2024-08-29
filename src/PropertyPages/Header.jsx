@@ -42,11 +42,11 @@ const Header = ({logo}) => {
     return (
         <div>
             <header className="text-slate-700 relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center shadow-md">
-                <Link to="/" className="flex items-center ml-4 whitespace-nowrap text-2xl font-black">
+                <div className="flex items-center ml-4 whitespace-nowrap text-2xl font-black">
                     <span className="w-[88%]">
                         <img src={logo} alt={headerData.logoalt} className='h-[50px]' />
                     </span>
-                </Link>
+                </div>
                 <input type="checkbox" className="peer hidden" id="navbar-open" />
                 <label className="absolute top-5 right-5 cursor-pointer lg:hidden" htmlFor="navbar-open">
                     <svg className="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
