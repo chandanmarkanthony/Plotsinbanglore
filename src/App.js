@@ -19,6 +19,7 @@ function App() {
           </>
         } />
         
+       
         <Route path="/property-details/:id" element={<PropertyDetails />} />
       </Routes>
      

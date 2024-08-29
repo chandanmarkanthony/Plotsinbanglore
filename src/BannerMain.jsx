@@ -3,13 +3,14 @@ import banner1 from './Assets/Images/Godrej-24-main-banner.webp';
 import banner2 from './Assets/Images/Godrej-Ananda-main-banner.webp';
 import banner3 from './Assets/Images/Godrej-Celeste-Banner.webp';
 import banner4 from './Assets/Images/Godrej-main-banner.webp';
-
+import Model from "../src/enquirymodel"
 function BannerMain() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
   const images = [banner1, banner2, banner3, banner4];
   const titles = ["SHRIRAM PROPERTIES", "EXCLUSIVE HOMES", "LUXURY LIVING", "EXCLUSIVE HOMES"];
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,7 +51,10 @@ function BannerMain() {
                 <h1 className="text-3xl md:text-6xl font-bold text-white">
                   {titles[currentIndex]}
                 </h1>
-                <button className="mt-4 px-6 py-2 md:py-3 bg-transparent border-green-500 border-2 hover:bg-green-500 text-white font-semibold rounded-lg md:rounded-full">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="mt-4 px-6 py-2 md:py-3 bg-transparent border-green-500 border-2 hover:bg-green-500 text-white font-semibold rounded-lg md:rounded-full"
+                >
                   ENQUIRY NOW
                 </button>
               </div>
@@ -68,6 +72,11 @@ function BannerMain() {
           />
         ))}
       </div>
+      <Model
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

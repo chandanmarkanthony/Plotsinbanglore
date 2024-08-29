@@ -28,7 +28,7 @@ function Plotslist() {
           Plots List &rarr;
         </Link>
       </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-4">
         {properties.length > 0 ? (
           properties.map((property, index) => (
             <div
