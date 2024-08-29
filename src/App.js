@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import BannerMain from './BannerMain';
@@ -7,6 +7,7 @@ import Footer from './Footer';
 import PropertyDetails from './PropertyPages/PropertyDetails';
 
 function App() {
+  const  [propertyId,setPropertyId]=useState("")
   return (
     <Router>
      
@@ -14,13 +15,13 @@ function App() {
         <Route path="/" element={
           <> <Navbar />
             <BannerMain />
-            <Plotslist />
+            <Plotslist setPropertyId={setPropertyId} />
             <Footer />
           </>
         } />
         
        
-        <Route path="/property-details/:project_name/:id" element={<PropertyDetails />} />
+        <Route path="/property-details/:project_name/" element={<PropertyDetails propertyId={propertyId} />} />
       </Routes>
      
     </Router>

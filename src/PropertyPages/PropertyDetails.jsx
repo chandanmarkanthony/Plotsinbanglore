@@ -14,8 +14,8 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import Form from './Form';
 
-const PropertyDetails = () => {
-    const { id,project_name } = useParams();
+const PropertyDetails = ({propertyId}) => {
+    const { project_name } = useParams();
     const [property, setProperties] = useState({});
     const [showForm, setShowForm] = useState(false);
 
@@ -47,11 +47,11 @@ const PropertyDetails = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const { data } = await axios.get(`https://leadapi.homebble.in/propertyRoute/getpropertyById?PropertyId=${id}`);
+            const { data } = await axios.get(`https://leadapi.homebble.in/propertyRoute/getpropertyById?PropertyId=${propertyId}`);
             setProperties(data.properties);
         };
         fetchData();
-    }, [id]);
+    }, [propertyId]);
     const seo_description = property?.seo_description ? JSON.parse(property?.seo_description) : []
  
     return (
