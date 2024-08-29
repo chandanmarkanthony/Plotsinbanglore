@@ -59,7 +59,7 @@ const PropertyDetails = () => {
             <Helmet>
                 <title>{property.seo_title || "Default SEO Title"}</title>
                 <meta name="description" content={seo_description || "Default SEO Description"} />
-                <meta name="keywords" content={property.seo_keywords ? JSON.parse(property.seo_keywords).join(', ') : "default, keywords"} />
+                <meta name="keywords" content={property.seo_keywords ? (JSON.parse(property.seo_keywords)): "default, keywords"} />
             </Helmet>
 
             <Header logo={property.Property_logo} />
