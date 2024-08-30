@@ -10,7 +10,8 @@ function Plotslist({setPropertyId}) {
       .then(data => {
         console.log('API Response:', data);
         if (data.Allproperties && Array.isArray(data.Allproperties)) {
-          setProperties(data.Allproperties);
+          const plotsdata=data.Allproperties.filter((res)=>res.property_type==="Plots")
+          setProperties(plotsdata);
         } else {
           console.error('Unexpected response format:', data);
         }
