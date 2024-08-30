@@ -15,7 +15,7 @@ import axios from 'axios';
 import Form from './Form';
 
 const PropertyDetails = ({propertyId}) => {
-    const { project_name } = useParams();
+    const { project_name,id } = useParams();
     const [property, setProperties] = useState({});
     const [showForm, setShowForm] = useState(false);
 
@@ -47,11 +47,11 @@ const PropertyDetails = ({propertyId}) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const { data } = await axios.get(`https://leadapi.homebble.in/propertyRoute/getpropertyById?PropertyId=${propertyId}`);
+            const { data } = await axios.get(`https://leadapi.homebble.in/propertyRoute/getpropertyById?PropertyId=${id}`);
             setProperties(data.properties);
         };
         fetchData();
-    }, [propertyId]);
+    }, [id]);
     const seo_description = property?.seo_description ? JSON.parse(property?.seo_description) : []
  
     return (

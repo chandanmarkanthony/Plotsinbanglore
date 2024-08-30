@@ -21,7 +21,7 @@ function App() {
         } />
         
        
-        <Route path="/property-details/:project_name/" element={<PropertyDetails propertyId={propertyId} />} />
+        <Route path="/property-details/:project_name/:id" element={<PropertyDetails propertyId={propertyId} />} />
       </Routes>
      
     </Router>
