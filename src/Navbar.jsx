@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Model from "./enquirymodel";
 
-function Navbar() {
+function Navbar({isModalOpen, setIsModalOpen}) {
+ 
 
 
     return (
@@ -17,7 +19,8 @@ function Navbar() {
 
                     </div>
                     <span className='md:mr-auto'></span>
-                    <button className="hidden md:flex w-full md:w-auto bg-green-500 text-white border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded mt-4 md:mt-0  items-center justify-center">
+                    <button className="hidden md:flex w-full md:w-auto bg-green-500 text-white border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded mt-4 md:mt-0  items-center justify-center"
+                    onClick={() => setIsModalOpen(true)}>
                         Request Call Back
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -25,6 +28,10 @@ function Navbar() {
                     </button>
                 </div>
             </header>
+            <Model 
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            onSubmit={() => setIsModalOpen(false)} />
         </div>
     );
 }

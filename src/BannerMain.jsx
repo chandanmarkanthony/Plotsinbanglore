@@ -4,13 +4,13 @@ import banner2 from './Assets/Images/Godrej-Ananda-main-banner.webp';
 import banner3 from './Assets/Images/Godrej-Celeste-Banner.webp';
 import banner4 from './Assets/Images/Godrej-main-banner.webp';
 import Model from "../src/enquirymodel"
-function BannerMain() {
+function BannerMain({isModalOpen, setIsModalOpen}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
   const images = [banner1, banner2, banner3, banner4];
   const titles = ["SHRIRAM PROPERTIES", "EXCLUSIVE HOMES", "LUXURY LIVING", "EXCLUSIVE HOMES"];
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
