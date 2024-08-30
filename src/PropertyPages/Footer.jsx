@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { footerData } from "./DataJson";
 import { bannerData } from "./DataJson";
 import Form from "./Form";
-import Qr from "../Assets/Images/pune agent rera qr code.png";
+import Qr from "../Assets/Images/bangalore_agent_rera_qr_code.png";
 function Footer({property}) {
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
