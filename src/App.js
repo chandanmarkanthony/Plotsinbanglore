@@ -8,13 +8,14 @@ import PropertyDetails from './PropertyPages/PropertyDetails';
 
 function App() {
   const  [propertyId,setPropertyId]=useState("")
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <Router>
      
       <Routes>
         <Route path="/" element={
-          <> <Navbar />
-            <BannerMain />
+          <> <Navbar isModalOpen= {isModalOpen} setIsModalOpen={setIsModalOpen} />
+            <BannerMain isModalOpen= {isModalOpen} setIsModalOpen={setIsModalOpen}/>
             <Plotslist setPropertyId={setPropertyId} />
             <Footer />
           </>
