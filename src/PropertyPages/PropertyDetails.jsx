@@ -70,7 +70,7 @@ const PropertyDetails = ({propertyId}) => {
             <Amenities amenities={property} />
             {showForm && <Form propertyform={property} />}
             <Gallery gallery={property} />
-            <Location property={property} />
+            {/* <Location property={property} /> */}
             <About about={property} />
             <Footer property={property} />
         </div>
