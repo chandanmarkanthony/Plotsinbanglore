@@ -44,9 +44,9 @@ function Footer({property}) {
       <div className="text-center p-4 ">
         <div className="mx-auto max-w-screen-xl  flex flex-col items-center">
           <h4 className="text-sm md:text-lg font-semibold mb-6">
-            {property?.project_Rera}
+            Project Rera: {property?.project_Rera}
           </h4>
-          <h4 className="text-sm md:text-lg font-semibold mb-6">{property.agent_Rera}</h4>
+          <h4 className="text-sm md:text-lg font-semibold mb-6">Agent Rera: {property.agent_Rera}</h4>
           <img src={Qr} alt="Scan" className="mb-4 h-20 w-20" />
 
           <p

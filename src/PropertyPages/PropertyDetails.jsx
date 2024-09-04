@@ -13,6 +13,7 @@ import Footer from './Footer';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import Form from './Form';
+import PricingTable from './Price';
 
 const PropertyDetails = ({propertyId}) => {
     const { project_name,id } = useParams();
@@ -65,7 +66,8 @@ const PropertyDetails = ({propertyId}) => {
             <Header logo={property.Property_logo} />
             <Banner property={property} />
             <OverView property={property} />
-            <FloorPlan floorPlans={property} />
+            {/* <FloorPlan floorPlans={property} /> */}
+            <PricingTable floorPlans={property}/>
             <ProjectHighlights highlights={property} />
             <Amenities amenities={property} />
             {showForm && <Form propertyform={property} />}
