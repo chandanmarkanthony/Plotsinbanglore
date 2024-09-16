@@ -18,7 +18,7 @@ import map from "../Assets/Images/Map.png";
 const headerData = {
   propertylogo: logo,
   logoalt: "logo",
-  pageUrl: "https://luxuryandme.in/lodha-magnus/",
+  pageUrl: "/",
 };
 const formField = {
   GtmId: "GTM-MCG9NVT2",
