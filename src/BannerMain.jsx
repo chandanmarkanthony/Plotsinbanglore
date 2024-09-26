@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import banner1 from './Assets/Images/Godrej-24-main-banner.webp';
-import banner2 from './Assets/Images/Godrej-Ananda-main-banner.webp';
-import banner3 from './Assets/Images/Godrej-Celeste-Banner.webp';
-import banner4 from './Assets/Images/Godrej-main-banner.webp';
+import banner1 from './Assets/Images/Banner1.jpg';
+import banner2 from './Assets/Images/Banner2.jpg';
+import banner3 from './Assets/Images/Banner3.jpg';
+
 import Model from "../src/enquirymodel"
 function BannerMain({isModalOpen, setIsModalOpen}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
-  const images = [banner1, banner2, banner3, banner4];
-  const titles = ["SHRIRAM PROPERTIES", "EXCLUSIVE HOMES", "LUXURY LIVING", "EXCLUSIVE HOMES"];
+  const images = [banner1, banner2, banner3];
+  const titles = ["Shriram Pristine Estate", "Brigade Neem Grove", "Sattva Green Grove"];
 
 
   useEffect(() => {

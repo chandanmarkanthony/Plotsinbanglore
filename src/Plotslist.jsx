@@ -41,8 +41,8 @@ function Plotslist({ setPropertyId }) {
     <section className="container-fluid mx-auto px-4 md:px-24 py-8">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl font-semibold">Latest Plots</h2>
-        <Link to="/all-properties" className="text-gray-600 hover:text-black flex items-center">
-          Plots List &rarr;
+        <Link to="/" className="text-gray-600 hover:text-black flex items-center">
+          Plots List &darr;
         </Link>
       </div>
       <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-4">
