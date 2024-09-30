@@ -16,7 +16,7 @@ import Form from './Form';
 import PricingTable from './Price';
 
 const PropertyDetails = ({propertyId}) => {
-    const { project_name,id } = useParams();
+    const { id } = useParams();
     const [property, setProperties] = useState({});
     const [showForm, setShowForm] = useState(false);
 
@@ -54,6 +54,7 @@ const PropertyDetails = ({propertyId}) => {
         fetchData();
     }, [id]);
     const seo_description = property?.seo_description ? JSON.parse(property?.seo_description) : []
+    const faviconUrl = property?.Property_logo || '/default-favicon.ico'; 
  
     return (
         <div>
@@ -61,6 +62,7 @@ const PropertyDetails = ({propertyId}) => {
                 <title>{property.seo_title || "Default SEO Title"}</title>
                 <meta name="description" content={seo_description || "Default SEO Description"} />
                 <meta name="keywords" content={property.seo_keywords ? (JSON.parse(property.seo_keywords)): "default, keywords"} />
+                <link rel="icon" href={faviconUrl} />
             </Helmet>
 
             <Header logo={property.Property_logo} />

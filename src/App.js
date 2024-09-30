@@ -6,6 +6,7 @@ import BannerMain from './BannerMain';
 import Plotslist from './Plotslist';
 import Footer from './Footer';
 import PropertyDetails from './PropertyPages/PropertyDetails';
+import favicon from './Assets/Images/favicon.ico';
 
 function App() {
   const [propertyId, setPropertyId] = useState("");
@@ -50,6 +51,7 @@ function App() {
                 <meta property="og:description" content="Explore premium villa plots for sale in Bangalore's prime locations. Build your dream home with well-developed infrastructure and top amenities. Book your plot today!" />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://www.plotinbangalore.in/" />
+                <link rel="icon" href={favicon} />
               </Helmet>
 
               <Navbar isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
