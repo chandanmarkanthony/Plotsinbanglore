@@ -150,10 +150,14 @@ const Banner = ({ property }) => {
                 </Link>
               </button>
               <button className="text-white font-bold py-2 px-3 rounded effetGradient flex items-center justify-center w-full">
-                <Link className="flex flex-wrap" to={property.phoneLink} onClick={() => handleClick("Phone Link")}>
+                <a
+                  className="flex flex-wrap"
+                  href={`tel:${property.phoneNumber}`}  // Use the `tel:` scheme to open the dialer
+                  onClick={() => handleClick("Phone Link")}
+                >
                   <IoCall className="mr-2" size={24} />
                   <span>{property.phoneNumber}</span>
-                </Link>
+                </a>
               </button>
             </div>
           </div>
@@ -161,7 +165,7 @@ const Banner = ({ property }) => {
       </div>
       {showForm && (
         <div ref={formRef}>
-          <Form onClose={() => toggleForm("Close Form")}  propertyform={property} />
+          <Form onClose={() => toggleForm("Close Form")} propertyform={property} />
         </div>
       )}
       <div className="md:hidden ">
@@ -193,7 +197,7 @@ const Banner = ({ property }) => {
 
             <div className="rounded-t-lg  bg-white   mt-[-10px] pt-3 ">
               <div className="text-center effetGradient p-2 mt-1 rounded-t-lg   ">
-              {
+                {
                   property?.highlightsinvestmentOpportunity ? (
 
                     (() => {
@@ -240,7 +244,7 @@ const Banner = ({ property }) => {
                 Why you should consider <br /> {property.project_Name}?
               </h3>
               <ul className="list-none shadow-xl bg-gray-200 rounded-t-lg p-4 mt-1 mb-1 text-center">
-              {
+                {
                   property?.reasonsToConsider ? (
                     (() => {
                       try {
@@ -263,16 +267,20 @@ const Banner = ({ property }) => {
             </div>
             <div className="flex  flex-col md:flex-row justify-center gap-2 ">
               <button className="text-white font-bold py-2 px-3 rounded effetGradient flex items-center justify-center w-full">
-                <Link className="flex flex-wrap"  to={whatsappUrl} onClick={() => handleClick("WhatsApp Link")} target="_blank">
+                <Link className="flex flex-wrap" to={whatsappUrl} onClick={() => handleClick("WhatsApp Link")} target="_blank">
                   <IoLogoWhatsapp className="mr-2" size={24} />
                   <span>WhatsApp</span>
                 </Link>
               </button>
               <button className="text-white font-bold py-2 px-3 rounded effetGradient flex items-center justify-center w-full">
-                <Link className="flex flex-wrap" to={property.phoneLink} onClick={() => handleClick("Phone Link")}>
+                <a
+                  className="flex flex-wrap items-center justify-center w-full"
+                  href={`tel:${property.phoneNumber}`}  // Use `tel:` scheme to open the dialer
+                  onClick={() => handleClick("Phone Link")}  // Track the click event
+                >
                   <IoCall className="mr-2" size={24} />
                   <span>{property.phoneNumber}</span>
-                </Link>
+                </a>
               </button>
             </div>
           </div>
