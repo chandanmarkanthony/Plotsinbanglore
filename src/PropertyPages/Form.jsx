@@ -217,7 +217,7 @@ function Form({propertyform}) {
         timer: 2000,
         timerProgressBar: true,
       });
-      const newUrl = `${window.location.pathname}?FormError=true`;
+      const newUrl = `${window.location.pathname}?FormSucess=true`;
       window.history.replaceState({}, '', newUrl);
     }
   };

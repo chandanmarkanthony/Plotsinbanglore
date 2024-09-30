@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-// Modal component
+
 const Modal = ({ isOpen, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -25,6 +25,9 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
         title: 'Success',
         text: 'Enquiry submitted successfully!',
       });
+      const newUrl = `${window.location.pathname}?FormSucess=true`;
+      window.history.replaceState({}, '', newUrl);
+
       setFormData({ name: '', email: '', phone: '' });
       onSubmit();
     } catch (error) {
