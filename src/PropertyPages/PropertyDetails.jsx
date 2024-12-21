@@ -10,17 +10,17 @@ import Gallery from './Gallery';
 import Location from './Location';
 import About from './About';
 import Footer from './Footer';
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import axios from 'axios';
 import Form from './Form';
 import PricingTable from './Price';
 
-const PropertyDetails = ({propertyId}) => {
-    console.log("propertyId",propertyId)
-    // const { id } = useParams();
+const PropertyDetails = () => {
+    const location = useLocation();
+    const { id } = useParams();
+    const propertyId = location.state?.id;
     const [property, setProperties] = useState({});
     const [showForm, setShowForm] = useState(false);
-
     useEffect(() => {
         const formTimeout = setTimeout(() => {
             setShowForm(true);
@@ -49,11 +49,11 @@ const PropertyDetails = ({propertyId}) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const { data } = await axios.get(`https://leadapi.homebble.in/propertyRoute/getpropertyById?PropertyId=${propertyId}`);
+            const { data } = await axios.get(`https://leadapi.homebble.in/propertyRoute/getpropertyById?PropertyId=${id}`);
             setProperties(data.properties);
         };
         fetchData();
-    }, [propertyId]);
+    }, [id]);
     const seo_description = property?.seo_description ? JSON.parse(property?.seo_description) : []
     const faviconUrl = property?.Property_logo || '/default-favicon.ico'; 
  
