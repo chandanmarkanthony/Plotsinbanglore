@@ -53,7 +53,7 @@ function Plotslist({ setPropertyId }) {
               className="relative overflow-hidden shadow-lg group transition-all duration-500" 
               onClick={() => handlePropertyClick(property)} // Trigger GTM clickEvent on property click
             >
-              <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}/${property.id}`}>
+              <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}`}>
                 <img
                   src={property.banner}
                   alt={property.project_Name}
@@ -61,18 +61,18 @@ function Plotslist({ setPropertyId }) {
                 />
               </Link>
               <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end items-start text-left p-4 transition-all duration-500 group-hover:translate-y-[-60px]">
-                <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}/${property.id}`}>
+                <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}`}>
                   <h3 className="text-white text-lg md:text-3xl font-semibold mb-2">
                     {property.project_Name}
                   </h3>
                 </Link>
-                <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}/${property.id}`}>
+                <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}`}>
                   <p className="text-white mb-3 text-sm md:text-lg border-2 border-green-500 p-2 px-3 rounded md:rounded-full">
                     STARTING @ {property.starting_Price}
                   </p>
                 </Link>
                 <Link
-                  to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}/${property.id}`}
+                  to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}`}
                   className="text-white hover:text-green-500 mt-2 inline-block font-semibold"
                 >
                   Click here to view &rarr;
@@ -81,19 +81,19 @@ function Plotslist({ setPropertyId }) {
               <div className="absolute bottom-0 left-0 w-full bg-green-500 text-white text-sm md:text-lg p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                 <div className="grid grid-cols-3 gap-2">
                   <div className="text-center">
-                    <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}/${property.id}`}>
+                    <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}`}>
                       <span className="block font-semibold">Possession</span>
                       <span className="text-base">{property.Possession}</span>
                     </Link>
                   </div>
                   <div className="text-center">
-                    <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}/${property.id}`}>
+                    <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}`}>
                       <span className="block font-semibold">Type</span>
                       <span className="text-base">{"Plots"}</span>
                     </Link>
                   </div>
                   <div className="text-center">
-                    <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}/${property.id}`}>
+                    <Link to={`/property-details/${((property.project_Name).toLowerCase()).replace(/ /g, "-")}`}>
                       <span className="block font-semibold">Land</span>
                       <span className="text-base">{property.land_parcel}</span>
                     </Link>

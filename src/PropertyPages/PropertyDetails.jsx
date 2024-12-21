@@ -16,7 +16,8 @@ import Form from './Form';
 import PricingTable from './Price';
 
 const PropertyDetails = ({propertyId}) => {
-    const { id } = useParams();
+    console.log("propertyId",propertyId)
+    // const { id } = useParams();
     const [property, setProperties] = useState({});
     const [showForm, setShowForm] = useState(false);
 
@@ -48,11 +49,11 @@ const PropertyDetails = ({propertyId}) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const { data } = await axios.get(`https://leadapi.homebble.in/propertyRoute/getpropertyById?PropertyId=${id}`);
+            const { data } = await axios.get(`https://leadapi.homebble.in/propertyRoute/getpropertyById?PropertyId=${propertyId}`);
             setProperties(data.properties);
         };
         fetchData();
-    }, [id]);
+    }, [propertyId]);
     const seo_description = property?.seo_description ? JSON.parse(property?.seo_description) : []
     const faviconUrl = property?.Property_logo || '/default-favicon.ico'; 
  

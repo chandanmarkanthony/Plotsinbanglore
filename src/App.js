@@ -64,7 +64,7 @@ function App() {
 
         {/* Property Details Page */}
         <Route
-          path="/property-details/:project_name/:id"
+          path="/property-details/:project_name"
           element={<PropertyDetails propertyId={propertyId} />}
         />
       </Routes>
