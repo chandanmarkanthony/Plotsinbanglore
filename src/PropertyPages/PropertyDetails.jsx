@@ -59,14 +59,23 @@ const PropertyDetails = () => {
  
     return (
         <div>
-            <Helmet>
+          <Helmet>
                 <title>{property.seo_title || "Default SEO Title"}</title>
                 <meta name="description" content={seo_description || "Default SEO Description"} />
                 <meta name="keywords" content={property.seo_keywords ? (JSON.parse(property.seo_keywords)): "default, keywords"} />
                 <link rel="icon" href={faviconUrl} />
+
+                <meta property="og:title" content={property.seo_title || "Default SEO Title"} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:image" content={property.Property_logo || '/default-image.jpg'} />
+                <meta property="og:site_name" content={property.project_Name || 'Plots In Bengaluru'} />
+                <meta property="og:description" content={seo_description || "Default SEO Description"} />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href={window.location.href} />
             </Helmet>
 
-            <Header logo={property.Property_logo} />
+            <Header logo={property} />
             <Banner property={property} />
             <OverView property={property} />
             {/* <FloorPlan floorPlans={property} /> */}

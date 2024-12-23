@@ -44,7 +44,7 @@ const Header = ({logo}) => {
             <header className="text-slate-700 relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center shadow-md">
                 <div className="flex items-center ml-4 whitespace-nowrap text-2xl font-black">
                     <span className="w-[88%]">
-                        <img src={logo} alt={headerData.logoalt} className='h-[50px]' />
+                        <img src={logo.Property_logo} alt={headerData.logoalt} className='h-[50px]' />
                     </span>
                 </div>
                 <input type="checkbox" className="peer hidden" id="navbar-open" />
@@ -72,7 +72,7 @@ const Header = ({logo}) => {
                     </div>
                 </nav>
             </header>
-            {showForm && <div ref={formRef}><Form onClose={toggleForm} /></div>}
+            {showForm && <div ref={formRef}><Form onClose={toggleForm} propertyform={logo} /></div>}
         </div>
     );
 }
