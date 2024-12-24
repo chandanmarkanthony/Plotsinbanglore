@@ -57,9 +57,9 @@ const bannerData = {
     "3 Mins - From Educational Institutes",
     "5 Mins - From Upcoming Metro station",
   ],
-  whatsappLink: `https://api.whatsapp.com/send?phone=+918999154744&text=Hi, I am interested in ${formField.EmailProjectName}. Can you share me all details`,
-  phoneNumber: "+918999154744",
-  phoneLink: "tel:89991 54744",
+  whatsappLink: `https://api.whatsapp.com/send?phone=+918431362126&text=Hi, I am interested in ${formField.EmailProjectName}. Can you share me all details`,
+  phoneNumber: "+918431362126",
+  phoneLink: "tel:84313 62126",
 };
 
 const propertyData = {

@@ -73,6 +73,37 @@ const PropertyDetails = () => {
                 <meta property="og:description" content={seo_description || "Default SEO Description"} />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href={window.location.href} />
+
+                <script type="application/ld+json">
+                    {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "WebSite",
+                        "url": "${window.location.href}",
+                        "name": "${property.seo_title || "Default SEO Title"}",
+                        "description": "${seo_description || "Default SEO Description"}",
+                        "inLanguage": "en",
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Plot in Bangalore",
+                            "logo": "https://www.plotinbangalore.in/static/media/favicon.98b17a2468721edea563.ico",
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "telephone": "+91-8431362126",
+                                "contactType": "Customer Support",
+                                "areaServed": "IN",
+                                "availableLanguage": "English"
+                            }
+                        },
+                        "mainEntityOfPage": "https://www.plotinbangalore.in/",
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "https://www.plotinbangalore.in/search?query={search_term_string}",
+                            "query-input": "required name=search_term_string"
+                        }
+                    }
+                    `}
+                </script>
             </Helmet>
 
             <Header logo={property} />

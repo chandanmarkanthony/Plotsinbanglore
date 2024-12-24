@@ -6,12 +6,12 @@ const Footer = () => {
         <footer className="bg-white rounded-lg m-4">
             <div className="container-fluid  mx-auto p-4 md:py-4 px-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
-                <a href="#" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <div  className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse cursor-pointer" onClick={() => window.location.href = window.location.href}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-8 h-8 md:w-10 md:h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
                                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                             </svg>
                             <span className="ml-3 text-base md:text-lg lg:text-xl font-semibold">Plot In Bangalore</span>
-                        </a>
+                        </div>
                 </div>
                 
                 

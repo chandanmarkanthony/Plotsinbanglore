@@ -26,6 +26,33 @@ function App() {
     }
   };
 
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.plotinbangalore.in/",
+    "name": "Plots for Sale in Bangalore | Villa Plots in Bangalore",
+    "description": "Explore premium villa plots for sale in Bangalore's prime locations. Build your dream home with well-developed infrastructure and top amenities. Book your plot today!",
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Plot in Bangalore",
+      "logo": "https://www.plotinbangalore.in/static/media/favicon.98b17a2468721edea563.ico",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-8431362126",
+        "contactType": "Customer Support",
+        "areaServed": "IN",
+        "availableLanguage": "English"
+      }
+    },
+    "mainEntityOfPage": "https://www.plotinbangalore.in/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.plotinbangalore.in/search?query={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <Router>
       <Routes>
@@ -52,6 +79,9 @@ function App() {
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://www.plotinbangalore.in/" />
                 <link rel="icon" href={favicon} />
+                <script type="application/ld+json">
+                  {JSON.stringify(schemaMarkup)}
+                </script>
               </Helmet>
 
               <Navbar isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />

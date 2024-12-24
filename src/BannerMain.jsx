@@ -3,14 +3,21 @@ import banner1 from './Assets/Images/Banner1.jpg';
 import banner2 from './Assets/Images/Banner2.jpg';
 import banner3 from './Assets/Images/Banner3.jpg';
 
-import Model from "../src/enquirymodel"
-function BannerMain({isModalOpen, setIsModalOpen}) {
+import Model from "../src/enquirymodel";
+
+function BannerMain({ isModalOpen, setIsModalOpen }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
   const images = [banner1, banner2, banner3];
   const titles = ["Shriram Pristine Estate", "Brigade Neem Grove", "Sattva Green Grove"];
-
+  
+  // URLs for each project
+  const projectUrls = [
+    "https://shriramproperties.in/shriram-pristine-estates/",
+    "https://www.plotinbangalore.in/property-details/brigade-neem-grove/ccaf9231-2e53-432f-b03d-c16721eb7f88",
+    "https://luxuryandme.in/sattva-green-groves/"
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,6 +39,16 @@ function BannerMain({isModalOpen, setIsModalOpen}) {
     }, 1000);
   };
 
+  const handleTitleClick = () => {
+    // Redirect to the URL based on the currentIndex
+    window.location.href = projectUrls[currentIndex];
+  };
+
+  const handleEnquiryClick = () => {
+    // If "Enquiry Now" is clicked, open the modal
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="relative w-full h-96 md:h-[35rem] lg:h-[45rem] overflow-hidden md:-mt-16">
       <div
@@ -48,11 +65,14 @@ function BannerMain({isModalOpen, setIsModalOpen}) {
               <div
                 className={`text-center transition-opacity duration-1000 ease-in-out ${fade ? 'opacity-100' : 'opacity-0'}`}
               >
-                <p className="text-3xl md:text-6xl font-bold text-white">
+                <h2
+                  onClick={handleTitleClick}  // Adding the onClick for project name
+                  className="text-3xl md:text-6xl font-bold text-white cursor-pointer"
+                >
                   {titles[currentIndex]}
-                </p>
+                </h2>
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={handleTitleClick}  // Keeping the Enquiry Now button behavior
                   className="mt-4 px-6 py-2 md:py-3 bg-transparent border-green-500 border-2 hover:bg-green-500 text-white font-semibold rounded-lg md:rounded-full"
                 >
                   ENQUIRY NOW

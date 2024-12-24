@@ -4,24 +4,24 @@ import { headerData } from './DataJson';
 import { Link } from 'react-router-dom';
 import Form from './Form';
 
-const Header = ({logo}) => {
+const Header = ({ logo }) => {
     const [showForm, setShowForm] = useState(false);
     const formRef = useRef(null);
     useEffect(() => {
         const handleScroll = () => {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'scrollEvent',
-            scrollDepth: window.scrollY,
-          });
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'scrollEvent',
+                scrollDepth: window.scrollY,
+            });
         };
-    
+
         window.addEventListener('scroll', handleScroll);
-    
+
         return () => {
-          window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
-      }, []); 
+    }, []);
     const toggleForm = () => {
         setShowForm(prevState => !prevState);
     };
@@ -29,7 +29,7 @@ const Header = ({logo}) => {
     const handleClickOutside = (event) => {
         if (formRef.current && !formRef.current.contains(event.target)) {
             setShowForm(false);
-        } 
+        }
     };
 
     useEffect(() => {
@@ -43,9 +43,10 @@ const Header = ({logo}) => {
         <div>
             <header className="text-slate-700 relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center shadow-md">
                 <div className="flex items-center ml-4 whitespace-nowrap text-2xl font-black">
-                    <span className="w-[88%]">
+                    <span className="w-[88%]" onClick={() => window.location.href = window.location.href}>
                         <img src={logo.Property_logo} alt={headerData.logoalt} className='h-[50px]' />
                     </span>
+
                 </div>
                 <input type="checkbox" className="peer hidden" id="navbar-open" />
                 <label className="absolute top-5 right-5 cursor-pointer lg:hidden" htmlFor="navbar-open">
@@ -64,9 +65,9 @@ const Header = ({logo}) => {
                     </ul>
                     <hr className="mt-4 w-full lg:hidden" />
                     <div className="my-4 flex items-center space-x-6 space-y-2 lg:my-0 lg:ml-auto lg:space-x-8 lg:space-y-0">
-                        <button 
-                         onClick={toggleForm}
-                         className="inline-flex items-center bg-gray-100 border-0 py-2 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+                        <button
+                            onClick={toggleForm}
+                            className="inline-flex items-center bg-gray-100 border-0 py-2 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
                             Brochure <AiOutlineDownload className="ml-1 animate-slide-in-down" size={24} />
                         </button>
                     </div>
