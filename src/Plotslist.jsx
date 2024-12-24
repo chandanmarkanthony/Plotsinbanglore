@@ -40,7 +40,7 @@ function Plotslist({ setPropertyId }) {
   return (
     <section className="container-fluid mx-auto px-4 md:px-24 py-8">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-semibold">Latest Plots</h2>
+      <h1 className="text-3xl font-semibold hover:text-green-500 hover:cursor-pointer">Plots In Bangalore</h1>
         <Link to="/" className="text-gray-600 hover:text-black flex items-center">
           Plots List &darr;
         </Link>

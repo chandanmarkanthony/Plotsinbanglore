@@ -171,9 +171,9 @@ const Banner = ({ property }) => {
       <div className="md:hidden ">
         <h2 className="text-md text-center font-bold effetGradient">{property.tag}</h2>
         <div className=" p-3 ">
-          <h1 className="text-center text-xl font-bold text-green-700" style={{ paddingBottom: "10px" }}>
+          <p className="text-center text-xl font-bold text-green-700" style={{ paddingBottom: "10px" }}>
             {property.project_Name}
-          </h1>
+          </p>
           <p className="text-center font-medium border border-green-600 rounded-t-md p-2">{property.location}</p>
           <p className="text-center font-bold  pt-2">{property.developer}</p>
           <div className="mt-4 ">

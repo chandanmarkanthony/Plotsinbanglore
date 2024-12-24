@@ -48,9 +48,9 @@ function BannerMain({isModalOpen, setIsModalOpen}) {
               <div
                 className={`text-center transition-opacity duration-1000 ease-in-out ${fade ? 'opacity-100' : 'opacity-0'}`}
               >
-                <h1 className="text-3xl md:text-6xl font-bold text-white">
+                <p className="text-3xl md:text-6xl font-bold text-white">
                   {titles[currentIndex]}
-                </h1>
+                </p>
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="mt-4 px-6 py-2 md:py-3 bg-transparent border-green-500 border-2 hover:bg-green-500 text-white font-semibold rounded-lg md:rounded-full"
