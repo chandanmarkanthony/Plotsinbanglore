@@ -1,7 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
-<url>
-  <loc>https://www.plotinbangalore.in/</loc>
-  <lastmod>2024-09-25</lastmod>
-</url>
-</urlset>
+const fs = require('fs');
+const axios = require('axios');
+
+// API endpoint
+const API_URL = 'https://leadapi.homebble.in/propertyRoute/getAllproperties';
+
+// Base URL for properties
+const BASE_URL = 'https://www.plotinbangalore.in/property-details';
+
+(async () => {
+  try {
+    // Fetch data from API
+    const response = await axios.get(API_URL);
+    const properties = response.data.Allproperties;
+
+    // Generate XML structure
+    const sitemap = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      `
+  <url>
+    <loc>https://www.plotinbangalore.in/</loc>
+    <lastmod>2024-09-25</lastmod>
+  </url>`
+    ];
+
+    properties.forEach(property => {
+      const url = `${BASE_URL}/${encodeURIComponent(property.project_Name.replace(/ /g, '-').toLowerCase())}/${property.id}`;
+      const lastmod = new Date(property.updatedAt).toISOString().split('T')[0];
+
+      sitemap.push(`
+  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+  </url>`);
+    });
+
+    sitemap.push('</urlset>');
+
+    // Save to sitemap.xml
+    fs.writeFileSync('sitemap.xml', sitemap.join('\n'), 'utf8');
+    console.log('sitemap.xml generated successfully!');
+  } catch (error) {
+    console.error('Error generating sitemap:', error.message);
+  }
+})();
