@@ -1,7 +1,136 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
-<url>
-  <loc>https://www.plotinbangalore.in/</loc>
-  <lastmod>2024-09-25</lastmod>
-</url>
-</urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url>
+          <loc>http://localhost:3000</loc>
+          <lastmod>2024-12-26</lastmod>
+          <changefreq>daily</changefreq>
+          <priority>1.0</priority>
+        </url>
+        
+        <url>
+          <loc>http://localhost:3000/property-details/address-classic-bulwark-village-phase-4/0f316d5d-ae8c-4995-9614-c2a6391301e4</loc>  
+          <lastmod>2024-09-13</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/artemis-address/0f385284-b70c-4384-a59f-e254b5a7f6cf</loc>  
+          <lastmod>2024-09-13</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/assetz-promise-of-spring/109bd7c0-cfc6-49ef-97ed-790d905062de</loc>  
+          <lastmod>2024-09-16</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/concorde-hill-crest-phase-2/1ddf6977-5a9a-46b2-b5e2-eb279d52f292</loc>  
+          <lastmod>2024-09-26</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/assetz-atmos-%26-aura/4a266820-07d2-4f88-9c7e-d71799eb3923</loc>  
+          <lastmod>2024-09-16</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/earth-bird-of-paradise-phase-2/543f7d96-3c57-4b37-91e7-322b4f11e2ac</loc>  
+          <lastmod>2024-09-26</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/century-eden/58c265df-5d3f-4124-b24f-c676886f62ba</loc>  
+          <lastmod>2024-09-17</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/adarsh-savana/59cdb411-a4d1-4680-bd96-8ba11a6d1804</loc>  
+          <lastmod>2024-09-03</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/assetz-inspira-melodies-of-life/5d581fe1-0a12-44de-aff2-c87151b0b59f</loc>  
+          <lastmod>2024-09-16</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/concorde-opus-ii/747c57bb-b577-40bf-8258-7d95a1423f4f</loc>  
+          <lastmod>2024-09-26</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/century-trails/85b591e7-4bc9-471d-b5c0-611ed6902d0b</loc>  
+          <lastmod>2024-09-26</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/century-eden-phase-3/98e0fe94-b9db-4622-9edf-84b0fd95eca7</loc>  
+          <lastmod>2024-09-26</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/bricks-%26-milestones-felicity/992d7f83-30ec-450a-bbf4-d735d5bd5cce</loc>  
+          <lastmod>2024-09-16</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/arvind-greatlands/9d48f445-dac0-41e2-babb-45720f4daa1b</loc>  
+          <lastmod>2024-09-13</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/concorde-elements-of-earth/a936e32a-cd86-47d2-907b-a7ed3009fc7a</loc>  
+          <lastmod>2024-09-26</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/bricks-%26-milestones-lagos/c7c31485-fb7d-4896-bc7b-9d97f53783d3</loc>  
+          <lastmod>2024-09-16</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/brigade-neem-grove/ccaf9231-2e53-432f-b03d-c16721eb7f88</loc>  
+          <lastmod>2024-09-16</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+        <url>
+          <loc>http://localhost:3000/property-details/bluejay-signature/cf072cc6-e5fb-453b-a73d-3f47f1571a3e</loc>  
+          <lastmod>2024-09-16</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      
+      </urlset>
