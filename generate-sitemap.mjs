@@ -2,7 +2,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 
 const generateSitemap = async () => {
-  const baseURL = "https://www.plotinbangalore.in/";  // Use localhost for development
+  const baseURL = "https://www.plotinbangalore.in";  // Use localhost for development
   const apiURL = "https://leadapi.homebble.in/propertyRoute/getAllproperties";
 
   try {
