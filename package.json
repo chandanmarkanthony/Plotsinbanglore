@@ -22,7 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run generate-sitemap && react-scripts start",
     "generate-sitemap": "node generate-sitemap.mjs",
     "build": "npm run generate-sitemap && react-scripts build",
     "test": "react-scripts test",

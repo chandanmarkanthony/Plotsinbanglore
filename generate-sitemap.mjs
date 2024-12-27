@@ -16,8 +16,13 @@ const generateSitemap = async () => {
     const urls = plots.map((property) => {
       const { id, project_Name, createdAt } = property;
 
-      // Encode the project name to handle special characters
-      const formattedProjectName = encodeURIComponent(project_Name.replace(/\s+/g, '-').toLowerCase());
+      // Encode the project name and escape `&` properly for XML
+      const formattedProjectName = project_Name
+        .toLowerCase()
+        .replace(/\s+/g, '-') // Replace spaces with hyphens
+        .replace(/[^a-z0-9-&]/g, '') // Remove all other special characters except `&`
+        .replace(/&/g, '&amp;'); // Escape `&` as `&amp;`
+
       const propertyUrl = `${baseURL}/property-details/${formattedProjectName}/${id}`;
       const lastmod = new Date(createdAt).toISOString().split("T")[0];
 
