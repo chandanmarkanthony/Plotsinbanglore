@@ -16,7 +16,7 @@ function Form({propertyform}) {
     utm_campaign: '',
     utm_term: '',
     utm_device: '',
-    user_city: '',
+    user_city: '',  
     user_country: '',
     browser: '',
     os: '',
@@ -173,7 +173,7 @@ function Form({propertyform}) {
       if (response.status === 200) {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          event: formField?.gtmProjectName,
+          event: propertyform?.project_Name.replace(/ /g,""),
         });
 
 
