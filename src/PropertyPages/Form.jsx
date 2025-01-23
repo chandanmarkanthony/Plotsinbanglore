@@ -4,11 +4,13 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { bannerData, formField } from "./DataJson"
 import TagManager from 'react-gtm-module';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 function Form({propertyform}) {
   const location = useLocation()
   const [isOpen, setIsOpen] = useState(true);
+  const navigate = useNavigate();
   const formRef = useRef(null);
+  const { project_name, id } = useParams();
   console.log("propertyform",propertyform)
   const [utmData, setUtmData] = useState({
     utm_source: '',
@@ -167,60 +169,45 @@ function Form({propertyform}) {
 
       console.log("utmData", utmData);
 
-      const response = await axios.post('https://leadapi.homebble.in/formdataRoute/getFormdata', utmData);
 
+        const response = await axios.post('https://leadapi.homebble.in/formdataRoute/getFormdata', utmData);
 
-      if (response.status === 200) {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: propertyform?.project_Name.replace(/ /g,""),
-        });
-
-
-
-
-
+        // const mockResponse = {
+        //   status: 200,
+        //   data: {
+        //     message: "Mock data sent successfully",
+        //   },
+        // };
+      
+        if (response.status === 200) {
+          // Push event to the dataLayer
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: propertyform?.project_Name.replace(/ /g, ""),
+          });
+      
+          // Redirect to the thank you page
+          navigate(`/property-details/${project_name}/${id}/thankyou`);
+        }
+      } catch (error) {
+        console.error('Error occurred:', error);
+      
+        // Show error alert
         Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: response.data.message || 'Data sent successfully',
-          showConfirmButton: true,
-          allowOutsideClick: false,
-          allowEscapeKey: false,
-          allowEnterKey: false,
-          onClose: () => {
-            setIsOpen(false);
-          },
+          icon: 'error',
+          title: 'Error',
+          text: error.response
+            ? (error.response.data.message || error.response.data.error || 'An error occurred while processing your request')
+            : 'An error occurred while processing your request',
+          timer: 2000,
+          timerProgressBar: true,
         });
-
-
-        const newUrl = `${window.location.pathname}?Formsuccess=true`;
-        window.history.pushState({}, '', newUrl);
-        window.location.href = newUrl;
-        TagManager.dataLayer({
-          dataLayer: {
-            event: 'VirtualPageView',
-            send_to: 'AW-784160287',
-            pagePath: newUrl,
-            pageTitle: 'successs'
-          },
-        });
-
-      }
-    } catch (error) {
-      console.error('Error occurred:', error);
-
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: error.response ? (error.response.data.message || error.response.data.error || 'An error occurred while processing your request') : 'An error occurred while processing your request',
-        timer: 2000,
-        timerProgressBar: true,
-      });
-      const newUrl = `${window.location.pathname}?FormSucess=true`;
-      window.history.replaceState({}, '', newUrl);
-    }
-  };
+      
+        // Update URL to indicate failure
+        const newUrl = `${window.location.pathname}?FormSuccess=false`;
+        window.history.replaceState({}, '', newUrl);
+      }}
+      
 
 
   const detectBrowser = () => {

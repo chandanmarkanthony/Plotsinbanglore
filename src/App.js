@@ -7,6 +7,7 @@ import Plotslist from './Plotslist';
 import Footer from './Footer';
 import PropertyDetails from './PropertyPages/PropertyDetails';
 import favicon from './Assets/Images/favicon.ico';
+import ThankYou from './PropertyPages/ThankYou';
 
 function App() {
   const [propertyId, setPropertyId] = useState("");
@@ -97,6 +98,7 @@ function App() {
           path="/property-details/:project_name/:id"
           element={<PropertyDetails propertyId={propertyId} />}
         />
+        <Route path="/property-details/:project_name/:id/thankyou" element={<ThankYou />} /> 
       </Routes>
     </Router>
   );
